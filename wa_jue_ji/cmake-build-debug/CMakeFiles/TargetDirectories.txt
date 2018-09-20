@@ -1,0 +1,3 @@
+/Users/dickr/algorithm/wa_jue_ji/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/dickr/algorithm/wa_jue_ji/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dickr/algorithm/wa_jue_ji/cmake-build-debug/CMakeFiles/wa_jue_ji.dir
