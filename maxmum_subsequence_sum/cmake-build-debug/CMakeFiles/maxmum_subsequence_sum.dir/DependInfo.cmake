@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/dickr/algorithm/maxmum_subsequence_sum/main.cpp" "/Users/dickr/algorithm/maxmum_subsequence_sum/cmake-build-debug/CMakeFiles/maxmum_subsequence_sum.dir/main.cpp.o"
+  "/Users/dickr/algorithm-and-data-structure/maxmum_subsequence_sum/main.cpp" "/Users/dickr/algorithm-and-data-structure/maxmum_subsequence_sum/cmake-build-debug/CMakeFiles/maxmum_subsequence_sum.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

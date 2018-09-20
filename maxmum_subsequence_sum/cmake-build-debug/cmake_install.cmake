@@ -1,4 +1,4 @@
-# Install script for directory: /Users/dickr/algorithm/maxmum_subsequence_sum
+# Install script for directory: /Users/dickr/algorithm-and-data-structure/maxmum_subsequence_sum
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/dickr/algorithm/maxmum_subsequence_sum/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/dickr/algorithm-and-data-structure/maxmum_subsequence_sum/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
