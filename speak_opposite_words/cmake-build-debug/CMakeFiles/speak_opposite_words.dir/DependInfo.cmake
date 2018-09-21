@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/dickr/algorithm/speak_opposite_words/main.cpp" "/Users/dickr/algorithm/speak_opposite_words/cmake-build-debug/CMakeFiles/speak_opposite_words.dir/main.cpp.o"
+  "/Users/dickr/algorithm-and-data-structure/speak_opposite_words/main.cpp" "/Users/dickr/algorithm-and-data-structure/speak_opposite_words/cmake-build-debug/CMakeFiles/speak_opposite_words.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

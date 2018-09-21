@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/dickr/algorithm/speak_opposite_words/main.cpp
+/Users/dickr/algorithm-and-data-structure/speak_opposite_words/main.cpp
 cstdio
 -
 cstring

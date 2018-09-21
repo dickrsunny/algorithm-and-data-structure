@@ -1,3 +1,3 @@
-/Users/dickr/algorithm/speak_opposite_words/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/dickr/algorithm/speak_opposite_words/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/dickr/algorithm/speak_opposite_words/cmake-build-debug/CMakeFiles/speak_opposite_words.dir
+/Users/dickr/algorithm-and-data-structure/speak_opposite_words/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/dickr/algorithm-and-data-structure/speak_opposite_words/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/dickr/algorithm-and-data-structure/speak_opposite_words/cmake-build-debug/CMakeFiles/speak_opposite_words.dir
