@@ -1,49 +1,52 @@
 /*
-1001 A+B Format （20 分）
-Calculate a+b and output the sum in standard format -- that is, the digits must be separated into groups of three by commas (unless there are less than four digits).
+    1001 A+B Format （20 分）
+    Calculate a+b and output the sum in standard format -- that is,
+    the digits must be separated into groups of three by commas (unless there are less than four digits).
 
-Input Specification:
-Each input file contains one test case. Each case contains a pair of integers a and b where −10
-​6
-​​ ≤a,b≤10
-​6
-​​ . The numbers are separated by a space.
+    Input Specification:
+    Each input file contains one test case. Each case contains a pair of integers a and b where −10
+    ​6
+    ​​ ≤a,b≤10
+    ​6
+    ​​ . The numbers are separated by a space.
 
-Output Specification:
-For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.
+    Output Specification:
+    For each test case, you should output the sum of a and b in one line.
+    The sum must be written in the standard format.
 
-Sample Input:
--1000000 9
-Sample Output:
--999,991
+    Sample Input:
+    -1000000 9
+    Sample Output:
+    -999,991
  */
 
 
+ /*
+    题目大意：计算A+B的和，然后以每三位加一个”,”的格式输出。
+
+    分析：把a+b的和转为字符串s。除了第一位是负号的情况，
+    只要当前位的下标i满足(i + 1) % 3 == len % 3并且i不是最后一位，
+    就在逐位输出的时候在该位输出后的后面加上一个逗号
+  */
+
 #include <iostream>
-#include <string>
+using namespace std;
 
 int main() {
-    int a, b;
-    scanf("%d %d", &a, &b);
+    int a, b, seq = 0;
 
-    int _sum = a + b;
-    std::string s = std::to_string(abs(_sum)), s_format;
+    cin >> a >> b;
 
-    for (int j = s.length() - 1, k = 1; j > 0; j--, k++) {
-        s_format += s[j];
-        if (k % 3 == 0) s_format += ",";
+    string s = to_string(a + b);
+    if (s[0] == '-') {
+        seq += 1;
+        cout << "-";
     }
 
-    s_format += s[0];
-
-    if (_sum < 0) {
-        std::cout << "-";
+    int len = s.length();
+    for (int i = seq; i < len; i++) {
+        cout << s[i];
+        if ((i + 1) % 3 == len % 3 && i != len - 1) cout << ",";
     }
-
-    int format_length = s_format.length();
-    for (int j = format_length - 1; j >= 0; j--) {
-        std::cout << s_format[j];
-    }
-
     return 0;
 }
