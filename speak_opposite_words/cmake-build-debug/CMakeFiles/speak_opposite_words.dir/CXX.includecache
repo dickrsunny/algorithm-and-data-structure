@@ -7,8 +7,8 @@
 #IncludeRegexTransform: 
 
 /Users/dickr/algorithm-and-data-structure/speak_opposite_words/main.cpp
-cstdio
+iostream
 -
-cstring
+stack
 -
 
