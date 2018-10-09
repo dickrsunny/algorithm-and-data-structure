@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++  -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/ZigZagging_on_a_Tree.dir/main.cpp.o  -o ZigZagging_on_a_Tree 
