@@ -5,20 +5,20 @@
 using namespace std;
 
 /* 定义二叉树 */
-typedef struct stBiTreeNode {
+struct BiTreeNode {
     int data;
-    struct stBiTreeNode *left, *right;
-} BITREENODE;
+    struct BiTreeNode *left, *right;
+};
 
 
 vector<int> in, post;
 
 
 // 重构二叉树
-BITREENODE* rebuild(int inLeft, int inRight, int postLeft, int postRight) {
+BiTreeNode* rebuild(int inLeft, int inRight, int postLeft, int postRight) {
     if (inLeft > inRight) return NULL;
 
-    BITREENODE* root = (BITREENODE*)malloc(sizeof(BITREENODE) + 1);
+    BiTreeNode* root;
     root->data = post[postRight];
 
     int i = 0;
@@ -30,7 +30,7 @@ BITREENODE* rebuild(int inLeft, int inRight, int postLeft, int postRight) {
 }
 
 // 遍历二叉树
-void post_order_traverse(BITREENODE* root) {
+void post_order_traverse(BiTreeNode* root) {
     if (!root) return;
 
     post_order_traverse(root->left);
@@ -42,13 +42,13 @@ void post_order_traverse(BITREENODE* root) {
 
 
 // 广度遍历二叉树
-void level_order_traverse(BITREENODE* root) {
-    queue<BITREENODE*> q;
+void level_order_traverse(BiTreeNode* root) {
+    queue<BiTreeNode*> q;
     q.push(root);
 
-    BITREENODE* node = root;
+    BiTreeNode* node = root;
     // 存储每一层节点
-    vector <BITREENODE*> temp;
+    vector <BiTreeNode*> temp;
     bool flag = true;
 
     while (!q.empty()) {
@@ -99,14 +99,13 @@ int main() {
     for (int i = 0; i < n; i++) cin >> in[i];
     for (int i = 0; i < n; i++) cin >> post[i];
 
-    BITREENODE* root;
+    BiTreeNode* root;
 
     root = rebuild(0, n - 1, 0, n - 1);
 
 //    post_order_traverse(root);
 
     level_order_traverse(root);
-
 
     return 0;
 }

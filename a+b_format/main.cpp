@@ -21,32 +21,31 @@
  */
 
 
- /*
-    题目大意：计算A+B的和，然后以每三位加一个”,”的格式输出。
-
-    分析：把a+b的和转为字符串s。除了第一位是负号的情况，
-    只要当前位的下标i满足(i + 1) % 3 == len % 3并且i不是最后一位，
-    就在逐位输出的时候在该位输出后的后面加上一个逗号
-  */
-
 #include <iostream>
+
 using namespace std;
 
+
 int main() {
-    int a, b, seq = 0;
+    int a, b, sum, start = 0, left;
+    scanf("%d %d", &a, &b);
+    sum = a + b;
+    string s = to_string(sum);
 
-    cin >> a >> b;
+    int length = s.length() - 1;
 
-    string s = to_string(a + b);
-    if (s[0] == '-') {
-        seq += 1;
-        cout << "-";
+    if (sum < 0) {
+        start += 1;
+        cout << s[0];
     }
 
-    int len = s.length();
-    for (int i = seq; i < len; i++) {
+    for (int i = start; i <= length; i++) {
         cout << s[i];
-        if ((i + 1) % 3 == len % 3 && i != len - 1) cout << ",";
+        left = length - i;
+        if (left % 3 == 0 and left != 0) {
+            cout << ",";
+        }
     }
+
     return 0;
 }

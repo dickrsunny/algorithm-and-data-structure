@@ -130,3 +130,8 @@ playbook.retry
 
 # vscode
 .vscode/
+
+# cmake
+cmake-build-debug
+CMakeLists.txt
+
