@@ -26,10 +26,10 @@ Sample Output:
 using namespace std;
 
 /* 定义二叉树 */
-struct BiTreeNode {
+typedef struct BiTreeNode {
     int data;
     struct BiTreeNode *left, *right;
-};
+} BiTreeNode;
 
 
 vector<int> in, post;
