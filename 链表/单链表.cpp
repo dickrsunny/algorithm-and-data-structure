@@ -36,10 +36,10 @@ int add(node** head_addr, int num) {
     node* node_ = initialize(num);
     if (_is_empty(node_)) return -1;
 
-    if (_is_empty(* head_addr)) * head_addr = node_;
+    if (_is_empty(*head_addr)) *head_addr = node_;
     else {
-        node_->next = * head_addr;
-        (* head_addr) = node_;
+        node_->next = *head_addr;
+        (*head_addr) = node_;
     }
 
     return 0;
@@ -47,17 +47,17 @@ int add(node** head_addr, int num) {
 
 
 int remove(node** head_addr) {
-    if (_is_empty(* head_addr)) return -1;
+    if (_is_empty(*head_addr)) return -1;
 
-    node* next_ = (* head_addr)->next;
-    free(* head_addr);
-    * head_addr = next_;
+    node* next_ = (*head_addr)->next;
+    free(*head_addr);
+    *head_addr = next_;
 
     return 0;
 }
 
 
-void traverse(node * head ) {
+void traverse(node* head ) {
     cout << "-------------" << endl;
     while (head) {
         cout << head->num << endl;

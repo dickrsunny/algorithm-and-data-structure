@@ -40,6 +40,8 @@ BiTreeNode* rebuild(int inLeft, int inRight, int postLeft, int postRight) {
     if (inLeft > inRight) return NULL;
 
     BiTreeNode* root;
+//    root = (BiTreeNode*) malloc(sizeof(BiTreeNode));
+    root = new BiTreeNode;
     root->data = post[postRight];
 
     int i = 0;
@@ -51,13 +53,13 @@ BiTreeNode* rebuild(int inLeft, int inRight, int postLeft, int postRight) {
 }
 
 // 遍历二叉树
-void post_order_traverse(BiTreeNode* root) {
+void release(BiTreeNode* root) {
     if (!root) return;
 
-    post_order_traverse(root->left);
-    post_order_traverse(root->right);
+    release(root->left);
+    release(root->right);
 
-    cout << root->data << " ";
+    free(root);
 
 }
 
@@ -111,7 +113,7 @@ void level_order_traverse(BiTreeNode* root) {
 
 
 int main() {
-    int n;
+    unsigned int n;
 
     cin >> n;
 
@@ -124,9 +126,9 @@ int main() {
 
     root = rebuild(0, n - 1, 0, n - 1);
 
-//    post_order_traverse(root);
-
     level_order_traverse(root);
+
+    release(root);
 
     return 0;
 }
