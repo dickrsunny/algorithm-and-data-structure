@@ -72,7 +72,7 @@ void release(node* head) {
     while (head) {
         p = head;
         head = head->next;
-        free(p);
+        delete(p);
     }
 
     cout << "release is done" << endl;
