@@ -71,10 +71,11 @@ void release(node* head) {
     node* p = NULL;
     while (head) {
         p = head;
-        free(head);
-        head = p->next;
+        head = head->next;
+        free(p);
     }
-    cout << "release is done";
+
+    cout << "release is done" << endl;
 }
 
 

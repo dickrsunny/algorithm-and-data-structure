@@ -142,13 +142,14 @@ static int deleteList(List* list, int location)
 
 int main(int argc, char** argv)
 {
-    // 需要修改指针指向的变量的值
+    // 需要修改指针指向的地址
     List* head = NULL;
-    int i = 0;
+
     head = initList();
     if(head == NULL)
         return -1;
 
+    // 需要修改指针指向的变量的值
     insertList(head, 2);
     insertList(head, 4);
     insertList(head, 6);
