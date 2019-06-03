@@ -31,6 +31,42 @@ typedef struct BiTreeNode{
 } BiTreeNode;
 
 
+void Initialize(BiTreeNode** root_p, const int elements[], int size) {
+    if (size < 1) {
+        *root_p = nullptr;
+    }
+
+    //动态申请size大小的指针数组
+    BiTreeNode **nodes;
+    nodes = new BiTreeNode* [size];
+
+    //将int数据转换为TreeNode节点
+    for (int i = 0; i < size; i++) {
+        if (elements[i] == 0) {
+            nodes[i] = nullptr;
+        } else {
+            nodes[i] = new BiTreeNode(elements[i]);
+        }
+    }
+
+    queue <BiTreeNode*> q;
+    q.push(nodes[0]);
+
+    BiTreeNode *node;
+    int index = 1;
+    while (index < size) {
+        node = q.front();
+        q.pop();
+        q.push(nodes[index++]);
+        node->left = q.back();
+        q.push(nodes[index++]);
+        node->right = q.back();
+    }
+
+    *root_p = nodes[0];
+}
+
+
 void PreOrder(BiTreeNode* root) {
     if(!root)
         return;
@@ -186,40 +222,57 @@ void LevelTraverse(BiTreeNode* root) {
 }
 
 
+int MaxDepth(BiTreeNode* root) {
+    if(!root)
+        return 0;
 
-void Initialize(BiTreeNode** root_p, const int elements[], int size) {
-    if (size < 1) {
-        *root_p = nullptr;
+    int left_depth = MaxDepth(root->left);
+    int right_depth = MaxDepth(root->right);
+
+    return max(left_depth, right_depth) + 1;
+}
+
+
+bool IsSameTree(BiTreeNode* root1, BiTreeNode* root2) {
+    if(!root1 && !root2) {
+        return true;
     }
 
-    //动态申请size大小的指针数组
-    BiTreeNode **nodes;
-    nodes = new BiTreeNode* [size];
-
-    //将int数据转换为TreeNode节点
-    for (int i = 0; i < size; i++) {
-        if (elements[i] == 0) {
-            nodes[i] = nullptr;
-        } else {
-            nodes[i] = new BiTreeNode(elements[i]);
-        }
+    else if(root1 && root2) {
+        return root1 == root2 && IsSameTree(root1->left, root2->left) && IsSameTree(root1->right, root2->right);
     }
 
-    queue <BiTreeNode*> q;
-    q.push(nodes[0]);
+    else
+        return false;
+}
 
-    BiTreeNode *node;
-    int index = 1;
-    while (index < size) {
-        node = q.front();
-        q.pop();
-        q.push(nodes[index++]);
-        node->left = q.back();
-        q.push(nodes[index++]);
-        node->right = q.back();
+
+void Swap(BiTreeNode* root) {
+    if(!root)
+        return;
+
+    Swap(root->left);
+    Swap(root->right);
+
+    BiTreeNode* node;
+    node = root->left;
+    root->left = root->right;
+    root->right = node;
+}
+
+
+int KthNode(BiTreeNode* root, int k, int* count) {
+    if(!root)
+        return 0;
+
+    *count += 1;
+    if(*count == k) {
+        return root->val;
     }
 
-    *root_p = nodes[0];
+    int l_val = KthNode(root->left, k, count);
+
+    return l_val? l_val: KthNode(root->right, k, count);
 }
 
 
@@ -243,6 +296,22 @@ int main() {
     PostOrder(root);
     cout << endl << "post-order non recursive" << endl;
     PostOrderNonRecursive(root);
+
+    cout << endl << "level traverse" << endl;
+    LevelTraverse(root);
+
+    cout << endl << "max depth" << endl;
+    cout << MaxDepth(root);
+
+    cout << endl << "is same tree" << endl;
+    cout << IsSameTree(root, root);
+
+    cout << endl << "kth node's val" << endl;
+    int count = 0;
+    cout << KthNode(root, 5, &count);
+
+    cout << endl << "swap left and right" << endl;
+    Swap(root);
 
     cout << endl << "level traverse" << endl;
     LevelTraverse(root);
