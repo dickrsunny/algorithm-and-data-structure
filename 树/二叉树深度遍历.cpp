@@ -196,8 +196,6 @@ void PostOrderNonRecursive(BiTreeNode* root) {
             }
         }
     }
-
-
 }
 
 
